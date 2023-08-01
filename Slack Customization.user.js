@@ -13,35 +13,31 @@
 
     // Function to remove muted channels
     function removeMutedChannels() {
+
         const unmutedChannels = document.querySelectorAll('[data-qa-channel-sidebar-channel-is-muted^="false"]');
         const mutedChannels = document.querySelectorAll('[data-qa-channel-sidebar-channel-is-muted^="true"]');
         const mutedSections = document.querySelectorAll('[data-qa^="muted_channels"]');
-<<<<<<< HEAD
         const colabSections = document.querySelectorAll('[data-qa^="collab"]');
 
 
-=======
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
         mutedChannels.forEach(channel => {
             const styleTag = document.head.appendChild(document.createElement('style'));
             styleTag.textContent = `.c-virtual_list__item, .c-virtual_list__sticky_container { position: initial; width: 100%;}`;
+
             channel.parentNode.style.display = 'none';
         });
+
         mutedSections.forEach(section => {
+
             section.parentNode.style.display = 'none';
         });
-<<<<<<< HEAD
         colabSections.forEach(section => {
 
             section.parentNode.style.display = 'none';
         });
 
-=======
-        unmutedChannels.forEach(channel => {
-            channel.parentNode.style.display = '';
-        });
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
     }
+
 
     //Function to remove Remove bolding and badges from unread Slack channels
     function removeBoldingBadges() {
@@ -58,14 +54,11 @@
         });
     }
 
+
     // Function to remove red badges
     function removeRedBadges() {
-<<<<<<< HEAD
         const badges = document.querySelectorAll('.p-channel_sidebar__badge, .p-channel_sidebar__badge_count, .p-channel_sidebar__badge--red, .p-recent_page__conversation__secondary');
 
-=======
-        const badges = document.querySelectorAll('.p-channel_sidebar__badge, .p-channel_sidebar__badge_count, .p-channel_sidebar__badge--red');
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
         badges.forEach(badge => {
             badge.style.display = 'none';
         });
@@ -74,16 +67,14 @@
     // Hide top section except Canvases and Later
     function hideTopSections() {
         var items = document.querySelectorAll(".p-channel_sidebar__static_list__item:not(.p-channel_sidebar__pages_list_spacer)");
+
         var spacer = document.querySelector(".p-channel_sidebar__pages_list_spacer");
         var filteredItems = [];
-<<<<<<< HEAD
         var filteredItemsForPrimary = [];
         var tempArray = Object.values(items);
         var spacer1 = document.querySelector('[data-qa^="direct_messages"]');
         var spacer2 = document.querySelector('[data-qa^="primary_focus"]');
 
-=======
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
             //tempArray.push(item);
@@ -93,7 +84,6 @@
 
             }
         }
-<<<<<<< HEAD
 
         for (var j = 0; j < tempArray.length; j++) {
             var item1 = tempArray[j];
@@ -105,8 +95,6 @@
         }
         console.log(tempArray);
         console.log(filteredItemsForPrimary);
-=======
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
         // Output the filtered items
         filteredItems.forEach(function(item) {
             if(!(item.querySelector(".p-channel_sidebar__pages_list_spacer") || item.querySelector(".p-channel_sidebar__name")?.textContent == "Later" || item.querySelector(".p-channel_sidebar__name")?.textContent == "Canvases")){
@@ -136,12 +124,12 @@
     // Function to hide "Unread messages" scroll bar
     function hideUnreadScrollBar() {
         const unreadScrollBar = document.querySelector('[data-qa-unreads-header-scrollbar]');
+
         if (unreadScrollBar) {
             unreadScrollBar.style.display = 'none';
         }
     }
 
-<<<<<<< HEAD
     // Function to hide "Unread Badge" when scroll
     function hideUnreadBadge() {
         const observer = new MutationObserver(mutations => {
@@ -160,17 +148,11 @@
         });
     }
 
-=======
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
     // Call all the customization functions
     setInterval(hideUnreadScrollBar, 1000);
     setInterval(removeRedBadges, 1000);
     setInterval(hideTopSections, 1000);
     setInterval(removeBoldingBadges, 1000);
     setInterval(removeMutedChannels, 1000);
-<<<<<<< HEAD
     setInterval(hideUnreadBadge, 1000);
 })();
-=======
-})();
->>>>>>> 461ab7119bfcf25430d625b95a5b0921d84851e9
